@@ -85,6 +85,11 @@ Inspired by and based on [inuitcss](https://github.com/inuitcss/inuitcss). 🙌
 * [@blackyukon](https://github.com/blackyukon)
 * [@gabriellakovacs](https://github.com/gabriellakovacs)
 
+## License
+
+This is free and unencumbered software released into the public domain.
+
+However, if you find it useful, postcards to our office are appreciated: Y7K, Zurlindenstr. 134, CH-8003 Zurich. ✈️ 
 
 
 
