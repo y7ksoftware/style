@@ -70,7 +70,7 @@ Utility classes, prefixed with `c-`.
 ### Vendor
 Put Vendor CSS files from 3rd party libraries here.
 
-### Third Party Libraries
+## Third Party Libraries
 
 * [dialog(size)](https://github.com/meodai/dialog-size) by [@meodai](https://github.com/meodai)
 * [Susy](http://susy.oddbird.net)
