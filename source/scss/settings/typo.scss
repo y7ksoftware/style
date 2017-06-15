@@ -1,0 +1,30 @@
+/* ========================================================================
+   TYPO
+   ======================================================================== */
+
+// Base typographical styles and baseline grid. You need to define these values
+// in pixels: we will convert them to more appropriate units.
+$global-font-size: 16px;
+$global-line-height: 24px;
+
+
+// Font Families
+$font-title: Helvetica, Arial, sans-serif;
+$font-text: Helvetica, Arial, sans-serif;
+
+
+// Example Font definitions
+
+@mixin font-body() {
+    @include font-size(size(medium));
+    @include mq($from: bp-tablet) { @include font-size(size(medium)); }
+    font-family: $font-text;
+}
+
+
+@mixin font-title() {
+    @include font-size(size(medium));
+    @include mq($from: bp-tablet) { @include font-size(size(large)); }
+    font-family: $font-title;
+    font-weight: bold;
+}

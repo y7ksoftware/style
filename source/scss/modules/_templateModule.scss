@@ -1,0 +1,24 @@
+/* ==========================================================================
+   EXAMPLE MODULE
+   ========================================================================== */
+
+.templateModule {
+    margin: 0;
+
+    @include mq($until: bp-phone) {}
+    @include mq($from: bp-tablet) {}
+    @include mq($from: bp-tablet, $until: bp-desktop) {}
+    @include mq($from: bp-desktop) {}
+
+    p { margin: 0; }
+}
+
+
+.templateModule-isHidden {
+
+}
+
+
+.templateModule-component {
+
+}

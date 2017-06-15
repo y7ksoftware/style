@@ -1,0 +1,34 @@
+/* ========================================================================
+   RESPONSIVE PROPERTY
+   ======================================================================== */
+
+// Use this mixin to quickly apply a map of properties to multiple breakpoints.
+//
+// 1. Define a map (in settings somewhere)
+//
+//      $nav-margins: (
+//          bp-phone: 20px,
+//          bp-tablet: 40px,
+//          bp-desktop: 100px
+//      )
+//
+// 2. Use it somewhere to apply the responsive properties
+//
+//      @include responsive-property(margin, $nav-margins);
+//
+// This will create the following:
+//
+//      .class {
+//          @include mq($from: bp-phone) { margin: 20px; }
+//          @include mq($from: bp-tablet) { margin: 40px; }
+//          @include mq($from: bp-desktop) { margin: 100px; }
+//      }
+//
+
+@mixin responsive-property($property, $list) {
+    @each $breakpoint-name, $value in $list {
+        @include mq($from: $breakpoint-name) {
+            #{$property}: $value;
+        }
+    }
+}

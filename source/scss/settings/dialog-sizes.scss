@@ -1,0 +1,45 @@
+/* ========================================================================
+   SIZES
+   ======================================================================== */
+
+/**
+* Utilizing: https://github.com/meodai/dialog-size
+*
+* Usage:
+* The size() function can be used in three different ways
+*
+* 1. Relative system
+*
+* size(0) will return the base size (1rem)
+* size(1) will return the largest size in your system (20rem)
+* size(-1) will return the smallest size in your system (0.2rem)
+* size(.2) will snap to the closest value in your system
+*
+* 2.Names
+*
+* size(large) will return 1.5rem
+*
+* 3. Relative to Name
+*
+* size("smaller then large") will return 1.2rem.
+*
+* 4.Value
+*
+* There is also the possibility to use a size in the same unit than your system. (In this case REM)
+*
+* size(9rem) will return 10rem since it's the closest in your system
+**/
+
+// Font Sizes
+$dialog-sizes:
+    (6px tiny)              // size(-1)
+    8px
+    (10px small)
+    14px
+    (16px medium isBase)    // size(0)
+    18px
+    (20px large)
+    24px
+    28px
+    (32px huge)
+    36px;                   // size(1)

@@ -1,0 +1,31 @@
+/* ========================================================================
+   FLUID TYPE
+   ======================================================================== */
+
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-bp, $max-bp, $min-font-size, $max-font-size, $line-height: auto, $important: false) {
+    $min-vw: mq-get-breakpoint-width($min-bp);
+    $max-vw: mq-get-breakpoint-width($max-bp);
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+
+    $min-font-size-rem: ($min-font-size / $global-font-size) * 1rem;
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+
+            @include font-size($min-font-size, $line-height, $important);
+            @include mq($from: $min-bp, $until: $max-bp) {
+                @include font-size(calc(#{$min-font-size-rem} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})), $line-height, $important, $min-font-size);
+            }
+            @include mq($from: $max-bp) {
+                @include font-size($max-font-size, $line-height, $important);
+            }
+        }
+    }
+}

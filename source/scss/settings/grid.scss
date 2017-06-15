@@ -1,0 +1,55 @@
+/* ========================================================================
+   SUSY GRID SETTINGS
+   ======================================================================== */
+
+// TESTING ONLY ------------------------------
+//* {
+//    background-color: rgba(gray,0.2) !important;
+//    outline: 1px solid rgba(red, 0.4) !important;
+//}
+// --------------------------------------------
+
+$container-margins: (
+    bp-phone: 20px,
+    bp-tablet: 40px,
+    bp-desktop: 8%,
+);
+
+$w-container-big-desktop: 1500px;
+
+// Width constraining containers for different breakpoints
+$container-phone: (columns: 12, container-position: #{map-get($container-margins, bp-phone)} #{map-get($container-margins, bp-phone)}); // Variable width, fixed margins l&r
+$container-tablet: (columns: 12, container-position: #{map-get($container-margins, bp-tablet)} #{map-get($container-margins, bp-tablet)}); // Variable width, fixed margins l&r
+$container-desktop: (columns: 12, container-position: #{map-get($container-margins, bp-desktop)} #{map-get($container-margins, bp-desktop)}); // Variable width, fixed margins l&r
+$container-big-desktop: (columns: 12, container: $w-container-big-desktop); // Fixed width
+
+$susy: (
+    columns: 12, // The number of columns in your grid
+    gutters: 0.5, // The size of a gutter in relation to a single column
+    gutter-position: after,
+    global-box-sizing: border-box
+    //debug: (
+    //    image: show,
+    //    color: rgba(#66f, .02),
+    //    output: background
+    //)
+);
+
+
+@mixin grid-container() {
+
+    @include container($container-phone);
+
+    @include mq($from: bp-tablet) {
+        @include container($container-tablet);
+    }
+
+    @include mq($from: bp-desktop) {
+        @include container($container-desktop);
+    }
+
+    @include mq($from: bp-big-desktop) {
+        @include container($container-big-desktop);
+    }
+
+}

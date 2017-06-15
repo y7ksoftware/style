@@ -1,0 +1,19 @@
+/* ========================================================================
+   UNLINK
+   ======================================================================== */
+
+// Remove default link styles from a link
+
+@mixin unlink() {
+
+    text-decoration: none;
+    color: inherit;
+
+    &:visited,
+    &:active,
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+}

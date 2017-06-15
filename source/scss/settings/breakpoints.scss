@@ -1,0 +1,17 @@
+/* ==========================================================================
+   BREAKPOINTS
+   ========================================================================== */
+
+/**
+* Read up! http://sass-mq.github.io/sass-mq/
+*
+*/
+
+$mq-breakpoints: (
+    bp-phone: 0px,
+    bp-phablet: 600px,
+    bp-tablet: 900px,
+    bp-desktop: 1200px,
+    bp-big-desktop: 1800px
+);
+

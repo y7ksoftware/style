@@ -1,0 +1,47 @@
+/* ==========================================================================
+   SPACING
+   ========================================================================== */
+
+/**
+ * Utility classes to put specific spacing values onto elements. The below loop
+ * will generate us a suite of classes like:
+ *
+ *   .u-spaceTop {}
+ *   .u-spaceInnerLeft-isMedium {}
+ *   .u-spaceRightSmall {}
+ *   .u-spaceInner {}
+ */
+
+/* stylelint-disable string-quotes */
+
+$spacing-directions: (
+    null: null,
+    '-top': 'Top',
+    '-right': 'Right',
+    '-bottom': 'Bottom',
+    '-left': 'Left',
+) !default;
+
+$spacing-properties: (
+    'margin': null,
+    'padding': 'Inner',
+) !default;
+
+// Loop through directions, properties and breakpoints per spacing
+@each $property, $property-namespace in $spacing-properties {
+    @each $direction, $direction-namespace in $spacing-directions {
+        @each $spacing-name, $spacing-list in $generate-spacing-classes {
+            @each $breakpoint-name, $value in $spacing-list {
+
+                @include mq($from: $breakpoint-name) {
+                    .u-space#{$property-namespace}#{$direction-namespace}-#{$spacing-name} {
+                        #{$property}#{$direction}: $value;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+/* stylelint-enable string-quotes */
