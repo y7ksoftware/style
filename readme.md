@@ -48,7 +48,7 @@ A place for Configuration and Variables.
  
 ### Tools
 A place for Mixins.
- * Aspect-Rato
+ * Aspect-Ratio
  * Clearfix
  * Fluid Type: Fluid Font Size, resizing depending on viewport
  * Font Face: Font-Face definition generator
@@ -69,6 +69,12 @@ Utility classes, prefixed with `c-`.
 
 ### Vendor
 Put Vendor CSS files from 3rd party libraries here.
+
+### Third Party Libraries
+
+* [dialog(size)](https://github.com/meodai/dialog-size) by [@meodai](https://github.com/meodai)
+* [Susy](http://susy.oddbird.net)
+* [Sass MQ](http://sass-mq.github.io/sass-mq/)
 
 ## Credit & Contributions
 Inspired by and based on [inuitcss](https://github.com/inuitcss/inuitcss). 🙌
