@@ -2,12 +2,12 @@
 
  [Version](project.json), [Changelog](changelog.md)
 
-#### An extensive, opinionated SCSS boilerplate for the modern web.
+#### An extensive, opinionated SCSS boilerplate for the modern web
 
-## Credit & Contributors
-Inspired by and based on [inuitcss](https://github.com/inuitcss/inuitcss) 🙌
+## Credit & Contributions
+Inspired by and based on [inuitcss](https://github.com/inuitcss/inuitcss). 🙌
 
-Additions by
+#### Contributions
 * [@exophunk](https://github.com/exophunk)
 * [@jorisnoo](https://github.com/jorisnoo)
 * [@blackyukon](https://github.com/blackyukon)
