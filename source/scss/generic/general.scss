@@ -2,10 +2,6 @@
    GENERAL
    ========================================================================== */
 
-html, body {
-    overflow-x: hidden;
-}
-
 /**
  * Simple page-level setup.
  *
@@ -24,6 +20,7 @@ html {
     font-size: ($global-font-size / 16px) * 1em; /* [1] */
     line-height: $global-line-height / $global-font-size; /* [1] */
     overflow-y: scroll; /* [2] */
+    overflow-x: hidden;
     height: 100%;
     min-height: 100%; /* [3] */
 }
@@ -31,6 +28,7 @@ html {
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 
     // TODO: Wtf is this?
     // display: flex;
