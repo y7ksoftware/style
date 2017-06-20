@@ -22,49 +22,33 @@
 @import "settings/z-indexes";
 
 // TOOLS
-@import "tools/aspect-ratio";
-@import "tools/clearfix";
-@import "tools/fluid-type";
-@import "tools/font-face";
-@import "tools/font-size";
-@import "tools/hidden";
-@import "tools/object-fit";
-@import "tools/rem";
-@import "tools/responsive-property";
-@import "tools/unlink";
-@import "tools/z-index";
+@import "tools/**/*";
 
 // GENERIC
 @import "generic/box-sizing";
 @import "generic/normalize";
 @import "generic/reset";
-@import "generic/cloak";
+@import "generic/general";
 @import "generic/fonts";
 @import "generic/print";
 
 // ELEMENTS
-@import "elements/general";
-@import "elements/headings";
-@import "elements/images";
-@import "elements/tables";
+@import "elements/**/*";
 
 // LAYOUTS
-//@import "layouts/example";
+@import "layouts/**/*";
 
 // COMPONENTS
-//@import "components/example";
+@import "components/**/*";
 
 // MODULES
-//@import "modules/demoModule";
+@import "modules/**/*";
 
 // ANIMATIONS
-//@import "animations/index";
+@import "animations/**/*";
 
 // UTILITIES
-@import "utilities/clearfix";
-@import "utilities/headings";
-@import "utilities/hide";
-@import "utilities/spacing";
+@import "utilities/**/*";
 
 // SHAME ON YOU
 @import "hacks/shame";
