@@ -33,22 +33,22 @@
 @import "generic/print";
 
 // ELEMENTS
-@import "elements/**/*";
+@import "elements/**/*.scss";
 
 // LAYOUTS
-@import "layouts/**/*";
+@import "layouts/**/*.scss";
 
 // COMPONENTS
-@import "components/**/*";
+@import "components/**/*.scss";
 
 // MODULES
-@import "modules/**/*";
+@import "modules/**/*.scss";
 
 // ANIMATIONS
-@import "animations/**/*";
+@import "animations/**/*.scss";
 
 // UTILITIES
-@import "utilities/**/*";
+@import "utilities/**/*.scss";
 
 // SHAME ON YOU
 @import "hacks/shame";
