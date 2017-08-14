@@ -2,15 +2,15 @@
 
     @include container($container-phone);
 
-    @include mq($from: bp-tablet) {
+    @include mq($from: tablet) {
         @include container($container-tablet);
     }
 
-    @include mq($from: bp-desktop) {
+    @include mq($from: desktop) {
         @include container($container-desktop);
     }
 
-    @include mq($from: bp-big-desktop) {
+    @include mq($from: big-desktop) {
         @include container($container-big-desktop);
     }
 

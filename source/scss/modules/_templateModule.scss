@@ -5,10 +5,10 @@
 .templateModule {
     margin: 0;
 
-    @include mq($until: bp-phone) {}
-    @include mq($from: bp-tablet) {}
-    @include mq($from: bp-tablet, $until: bp-desktop) {}
-    @include mq($from: bp-desktop) {}
+    @include mq($until: phone) {}
+    @include mq($from: tablet) {}
+    @include mq($from: tablet, $until: desktop) {}
+    @include mq($from: desktop) {}
 
     p { margin: 0; }
 }

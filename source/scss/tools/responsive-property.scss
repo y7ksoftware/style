@@ -7,9 +7,9 @@
 // 1. Define a map (in settings somewhere)
 //
 //      $nav-margins: (
-//          bp-phone: 20px,
-//          bp-tablet: 40px,
-//          bp-desktop: 100px
+//          phone: 20px,
+//          tablet: 40px,
+//          desktop: 100px
 //      )
 //
 // 2. Use it somewhere to apply the responsive properties
@@ -19,9 +19,9 @@
 // This will create the following:
 //
 //      .class {
-//          @include mq($from: bp-phone) { margin: 20px; }
-//          @include mq($from: bp-tablet) { margin: 40px; }
-//          @include mq($from: bp-desktop) { margin: 100px; }
+//          @include mq($from: phone) { margin: 20px; }
+//          @include mq($from: tablet) { margin: 40px; }
+//          @include mq($from: desktop) { margin: 100px; }
 //      }
 //
 

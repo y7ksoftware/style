@@ -10,17 +10,17 @@
 // --------------------------------------------
 
 $container-margins: (
-    bp-phone: 20px,
-    bp-tablet: 40px,
-    bp-desktop: 8%,
+    phone: 20px,
+    tablet: 40px,
+    desktop: 8%,
 );
 
 $w-container-big-desktop: 1500px;
 
 // Width constraining containers for different breakpoints
-$container-phone: (columns: 12, container-position: #{map-get($container-margins, bp-phone)} #{map-get($container-margins, bp-phone)}); // Variable width, fixed margins l&r
-$container-tablet: (columns: 12, container-position: #{map-get($container-margins, bp-tablet)} #{map-get($container-margins, bp-tablet)}); // Variable width, fixed margins l&r
-$container-desktop: (columns: 12, container-position: #{map-get($container-margins, bp-desktop)} #{map-get($container-margins, bp-desktop)}); // Variable width, fixed margins l&r
+$container-phone: (columns: 12, container-position: #{map-get($container-margins, phone)} #{map-get($container-margins, phone)}); // Variable width, fixed margins l&r
+$container-tablet: (columns: 12, container-position: #{map-get($container-margins, tablet)} #{map-get($container-margins, tablet)}); // Variable width, fixed margins l&r
+$container-desktop: (columns: 12, container-position: #{map-get($container-margins, desktop)} #{map-get($container-margins, desktop)}); // Variable width, fixed margins l&r
 $container-big-desktop: (columns: 12, container: $w-container-big-desktop); // Fixed width
 
 $susy: (

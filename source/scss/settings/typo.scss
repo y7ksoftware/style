@@ -17,14 +17,14 @@ $font-text: Helvetica, Arial, sans-serif;
 
 @mixin font-body() {
     @include font-size(size(medium));
-    @include mq($from: bp-tablet) { @include font-size(size(medium)); }
+    @include mq($from: tablet) { @include font-size(size(medium)); }
     font-family: $font-text;
 }
 
 
 @mixin font-title() {
     @include font-size(size(medium));
-    @include mq($from: bp-tablet) { @include font-size(size(large)); }
+    @include mq($from: tablet) { @include font-size(size(large)); }
     font-family: $font-title;
     font-weight: bold;
 }
