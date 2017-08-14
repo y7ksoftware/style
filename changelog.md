@@ -1,5 +1,16 @@
 # Y7K Style Changelog
 
+
+## Version 0.3.*
+* Add completely new, responsive spacing system with spacings() mixins
+* Add completely new susy grid implementation with responsive gutters
+* Add pageContainer as independent replacement of grid-container()
+* Remove "bp-" prefix from breakpoint names
+* Update breakpoint sizes
+* Add settings file for measurements
+* Add rules for better keybord focus outlining (works with keyboardFocusOutliner.js)
+* Add rules for Debug Grid (works with debugGrid.js)
+
 ## Version 0.2.*
 * Restructure Elements & Generic
 * Create Tool Mixin for grid container
