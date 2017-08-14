@@ -1,0 +1,20 @@
+/* ========================================================================
+   MEASUREMENTS
+   ======================================================================== */
+
+/**
+ * Here, you can define different spacings and measurements.
+ *
+ * You can also define maps with breakpoint-specific settings. See "tools/responsive-property".
+ * With this mixin, you can then easily apply the values to different breakpoints.
+ *
+ */
+
+
+$w-example: 200px;
+
+$h-example: (
+   phone: 60px,
+   tablet: 80px,
+   desktop: 120px,
+);
