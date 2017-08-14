@@ -14,16 +14,31 @@
 // --------------------------------------------
 
 
+/**
+ * Grid gutters are applied as padding-left and padding-right on columns. (And as negative margins on containers).
+ * You can specify gutters per breakpoint and have responsive gutter widths! (Good luck doing that with any other grid system)
+ *
+ * It is recommended to use "vw" for gutters, as they adjust nicely when resizing inside one breakpoint. Of course, you can use
+ * any kind of unit.
+ */
+$grid-gutters: (
+    phone: 2.2vw,
+    phablet: 1.5vw,
+    tablet: 1.3vw,
+    desktop: 1vw,
+    big-desktop: 10px
+);
 
 
+/**
+ * Susy Settings:
+ *
+ * IMPORTANT: For the usage with the Y7K grid-columns() mixins, gutters need to be "0", as
+ * we have a custom gutter implementation.
+ */
 $susy: (
-    columns: 12, // The number of columns in your grid
-    gutters: 0.5, // The size of a gutter in relation to a single column
+    columns: 12,
+    gutters: 0,
     gutter-position: after,
-    global-box-sizing: border-box
-    //debug: (
-    //    image: show,
-    //    color: rgba(#66f, .02),
-    //    output: background
-    //)
+    global-box-sizing: border-box,
 );
