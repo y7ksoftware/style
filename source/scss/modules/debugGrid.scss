@@ -1,0 +1,33 @@
+.debugGrid {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -99;
+    @include page-container;
+}
+
+
+.debugGrid-isVisible {
+    display: block;
+}
+
+.debugGrid-cols {
+    @include grid;
+}
+
+.debugGrid-col {
+    position: relative;
+    height: 100vh;
+    @include grid-columns((phone: 1));
+
+}
+
+.debugGrid-colInner {
+    width: 100%;
+    height: 100vh;
+    background: rgba(black,0.05);
+
+}
