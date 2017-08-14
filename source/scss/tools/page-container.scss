@@ -1,0 +1,58 @@
+/* ========================================================================
+   RESPONSIVE PAGE CONTAINER
+   ======================================================================== */
+
+/**
+ *
+ * Page container defines a responsive container for the whole page content. It takes
+ * the definitions from "settings/page-container" and creates a container with different
+ * width based on breakpoint.
+ *
+ * The page container can be:
+ * - Fluid, with margins on its side
+ * - Have a given width
+ * - Be absolute positioned or normal
+ *
+ *
+ * @include page-container();        --> Normal
+ * @include page-container(true);    --> Absolute
+ *
+ */
+
+@mixin page-container($absolute: false) {
+
+    @each $breakpoint, $settings in $page-container {
+
+        $width: map-get($settings, width);
+        // Width: Auto, when no width is given
+        $width: if($width, $width, auto);
+
+        $margins: map-get($settings, margins);
+        // Margins: auto, when no margins given
+        $margins: if($margins, $margins, auto);
+
+        @include mq($from: $breakpoint) {
+
+            // Position absolute in center
+            @if $absolute {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+
+                @if $margins != auto {
+                    width: calc(100% - 2 * #{$margins});
+                } @else {
+                    width: $width;
+                }
+
+            } @else {
+
+                // Default
+                width: $width;
+                margin: 0 $margins;
+            }
+        }
+    }
+}
+
+

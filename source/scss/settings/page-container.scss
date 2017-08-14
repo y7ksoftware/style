@@ -1,0 +1,25 @@
+/* ========================================================================
+   PAGE CONTAINER SIZES
+   ======================================================================== */
+
+/**
+ * See "tools/page-container"
+ *
+ * Page container defines a responsive container for the whole page content. It takes
+ * the definitions from "settings/page-container" and creates a container with different
+ * width based on breakpoint.
+ *
+ * - For every breakpoint, set a map
+ * - Map can have two properties (either or!)
+ *     - margins: XX[px/vh/%/etc.]   --> Container has fluid width and margins on the side and is centered
+ *     - width: XX[px/vh/%/etc.]     --> Container has fixed width and is centered
+ */
+
+$page-container: (
+    phone: (margins: 15px),
+    phablet: (margins: 35px),
+    tablet: (margins: 50px),
+    desktop: (margins: 70px),
+    big-desktop: (width: 1300px),
+);
+
