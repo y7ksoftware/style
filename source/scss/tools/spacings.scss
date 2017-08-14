@@ -1,0 +1,224 @@
+/* ========================================================================
+   RESPONSIVE SPACING
+   ======================================================================== */
+
+/**
+ *
+ * Spacings simplifies the application of responsive spacings (margins, paddings, top, left etc.).
+ * It applies spacing types defined in "settings/spacings". In the settings you can setup different spacings,
+ * e.g. small, medium, large, which are sass maps with different values per breakpoint:
+ *
+ * Example:
+ *
+ *    $space-medium: (
+ *        phone: 20px,
+ *        tablet: 40px,
+ *        desktop: 40px,
+ *    );
+ *
+ *
+ *
+ * ______________________________________________________________________________________________________________________
+ * Usage:
+ * ______________________________________________________________________________________________________________________
+ *
+ *
+ * You can use spacings in two ways:
+ *
+ * 1. @spacing(): Single Spacing Type
+ * ----------------------
+ *
+ * Normally, you will apply one space type (e.g. medium) and it will use the different values for every defined breakpoint.
+ *
+ * @include spacing(left, medium);                     --> margin-left: XXpx; (e.g. phone: 20, tablet: 40, desktop: 60)
+ * @include spacing(top, small);                       --> margin-top: XXpx;
+ * @include spacing(all, medium);                      --> margin: XXpx; (All sides)
+ * @include spacing(top, medium, true);                --> padding-top: XXpx;
+ * @include spacing(left, medium, $absolute: true);    --> Absolute left: XXpx;
+ *
+ *
+ *
+ * 2. @spacings(): Different Spacing Types per breakpoint
+ * ----------------------
+ *
+ * Sometimes, you need to apply different spacings at breakpoints, even if they are already adapting. For example you need a "medium" space
+ * on desktop, but need to apply "huge" space on phones, because the design requires it.
+ *
+ * For this, you are able to define the spacing type to be used for every breakpoint.
+ *
+ * Important Notes:
+ * - This is MOBILE FIRST. so if you say (phone: small), everything above will also use the spacing "small".
+ * - You can only specify spacings for a breakpoint if this spacing type has a set rule for this breakpoint. (You can't define phone: medium, wenn "medium" has no phone setting)
+ *
+ * @include spacings(left, (phone: medium, tablet: small));                    --> margin-left: XXpx; (medium for mobile, small for everything tablet and above)
+ * @include spacings(right, (phone: medium, tablet: large), true);             --> padding-right: XXpx; (medium for mobile, large for everything tablet and above)
+ * @include spacings(all, (phone: null, tablet: large));                       --> margin: 0; for mobile, margin: XXpx for tablet and above
+ * @include spacings(all, (phone: small, tablet: 30px, desktop: large));       --> Small margin for mobile, fixed 30px for tablet, large space for desktop
+ * @include spacings(left, (phone: medium, tablet: small), $absolute: true);   --> Absolute left: XXpx; Medium for Phone, Small for Tablet and above
+ *
+ */
+
+
+
+
+
+
+/**
+ * Single spacing type for all breakpoints
+ *
+ * Parameters
+ * ----------------------
+ * $position: left/right/top/bottom/all
+ * $spacingSize: the name of a spacing map defined in "settings/spacings" (e.g. small)
+ * $inner: if true, it will use padding instead of margin
+ * $absolute: if true, it will use left/right/top/bottom instead of margins/paddings
+ *
+ * Notes:
+ * If $absolute is true: $position "all" is not allowed
+ * If $absolute is true: $inner is not allowed
+ * There is no "null" or "fixed value" for $spacingSize as in @spacings() as there is no use for it, you can
+ * simply define the css rule directly
+ */
+@mixin spacing($position, $spacingSize, $inner: false, $absolute: false) {
+
+    // Validate correct usage of params
+    validateSpacingParams();
+
+    $spaceType: null;
+
+    @if $absolute {
+        $spaceType: $position;
+    } @else if $inner {
+        $spaceType: 'padding';
+    } @else {
+        $spaceType: 'margin';
+    }
+
+    $spacingValues: map-get($spacings, $spacingSize);
+
+
+    @each $breakpoint, $value in $spacingValues {
+        @include mq($from: $breakpoint) {
+            @if $position == 'all' or $absolute {
+                #{$spaceType}: $value;
+            } @else {
+                #{$spaceType}-#{$position}: $value;
+            }
+        }
+    }
+}
+
+
+/**
+ * Vary spacing type for different breakpoints
+ *
+ * Parameters
+ * ----------------------
+ * $position: left/right/top/bottom/all
+ * $spacingSize: the name of a spacing map defined in "settings/spacings" (e.g. small) OR "null" OR a value, e.g. "30%"
+ * $inner: if true, it will use padding instead of margin
+ * $absolute: if true, it will use left/right/top/bottom instead of margins/paddings
+ *
+ * Notes:
+ * If $absolute is true: $position "all" is not allowed
+ * If $absolute is true: $inner is not allowed
+ * $spacingSize: Null is allowed (sets space 0 for this breakpoint)
+ * $spacingSize: 30px is allowed to define specific space for this breakpoint
+ */
+@mixin spacings($position, $spacingSizes, $inner: false, $absolute: false) {
+
+    // Validate correct usage of params
+    validateSpacingParams();
+
+    $lastSpacingSize: null;
+    $spaceType: null;
+
+    @if $absolute {
+        $spaceType: $position;
+    } @else if $inner {
+        $spaceType: 'padding';
+    } @else {
+        $spaceType: 'margin';
+    }
+
+
+    @each $breakpoint, $breakpointValue in $mq-breakpoints {
+
+        $spacingSize: null;
+
+        // If no size is given for a specific breakpoint, we apply the same
+        // size as the last breakpoint
+        @if not map-has-key($spacingSizes, $breakpoint) {
+            $spacingSize: $lastSpacingSize;
+        } @else {
+            $spacingSize: map-get($spacingSizes, $breakpoint);
+        }
+
+        // Now there is either a given spacingSize (as parameter, or else the the one from the last breakpoint).
+        // If not, then the spacingSize is explicitly set to null! In this case, we apply space 0
+        @if $spacingSize {
+
+            $value: null;
+
+            @if type-of($spacingSize) == number {
+                $value: $spacingSize;
+            } @else {
+                $spacingValues: map-get($spacings, $spacingSize);
+                $value: map-get($spacingValues, $breakpoint);
+            }
+
+            // In this case, a size was passed for a breakpoint, which has no size value defined for this breakpoint
+            // This doesn't make sense, so don't allow it
+            @if not $value and map-has-key($spacingSizes, $breakpoint) {
+                @error 'There is no size "#{$spacingSize}" defined for this breakpoint: #{$breakpoint}';
+            }
+
+            // Only output value if there is one.
+            @if $value {
+                @include mq($from: $breakpoint) {
+                    @if $position == 'all' or $absolute {
+                        #{$spaceType}: $value;
+                    } @else {
+                        #{$spaceType}-#{$position}: $value;
+                    }
+                }
+            }
+        } @else {
+
+            // In case "null" is explicitly passed for a specific breakpoint, we apply "spaceType: 0" in this case.
+            @include mq($from: $breakpoint) {
+                @if $position == 'all' or $absolute {
+                    #{$spaceType}: 0;
+                } @else {
+                    #{$spaceType}-#{$position}: 0;
+                }
+            }
+        }
+
+        $lastSpacingSize: $spacingSize;
+
+    }
+}
+
+
+
+/**
+ * Function to validate the correct use of the spacing mixins
+ */
+@function validateSpacingParams($position, $spacingSizes, $inner: false, $absolute: false) {
+
+    // Validate if position is correct
+    @if not map-has-key((top: true, right: true, bottom: true, left: true, all: true), $position) {
+        @error 'Value for position must be either all, top, right, bottom or left';
+    }
+
+    // Validate that spacing is not "inner" (paddings) and "absolute" (left/right/bottom/top) at the same time
+    @if $inner && $absolute {
+        @error 'Spacings can only either be "inner" or "absolute" (padding or left/right etc.)';
+    }
+
+    // Validate that absolute spacings have position [left/right/top/bottom]
+    @if $position == all and $absolute {
+        @error 'Absolute spacings need to have position [left/right/top/bottom]. "all" is not allowed.';
+    }
+}
