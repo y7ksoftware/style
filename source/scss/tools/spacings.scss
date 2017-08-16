@@ -82,7 +82,7 @@
 @mixin spacing($position, $spacingSize, $inner: false, $absolute: false) {
 
     // Validate correct usage of params
-    validateSpacingParams();
+    @include validateSpacingParams();
 
     $spaceType: null;
 
@@ -128,7 +128,7 @@
 @mixin spacings($position, $spacingSizes, $inner: false, $absolute: false) {
 
     // Validate correct usage of params
-    validateSpacingParams();
+    @include validateSpacingParams();
 
     $lastSpacingSize: null;
     $spaceType: null;
@@ -205,7 +205,7 @@
 /**
  * Function to validate the correct use of the spacing mixins
  */
-@function validateSpacingParams($position, $spacingSizes, $inner: false, $absolute: false) {
+@mixin validateSpacingParams($position, $spacingSizes, $inner: false, $absolute: false) {
 
     // Validate if position is correct
     @if not map-has-key((top: true, right: true, bottom: true, left: true, all: true), $position) {
