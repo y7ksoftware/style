@@ -27,9 +27,9 @@
         // Width: Auto, when no width is given
         $width: if($width, $width, auto);
 
-        $margins: map-get($settings, margins);
-        // Margins: auto, when no margins given
-        $margins: if($margins, $margins, auto);
+        $margin: map-get($settings, margin);
+        // Margins: auto, when no margin given
+        $margin: if($margin, $margin, auto);
 
         @include mq($from: $breakpoint) {
 
@@ -39,8 +39,8 @@
                 left: 50%;
                 transform: translateX(-50%);
 
-                @if $margins != auto {
-                    width: calc(100% - 2 * #{$margins});
+                @if $margin != auto {
+                    width: calc(100% - 2 * #{$margin});
                 } @else {
                     width: $width;
                 }
@@ -49,7 +49,7 @@
 
                 // Default
                 width: $width;
-                margin: 0 $margins;
+                margin: 0 $margin;
             }
         }
     }

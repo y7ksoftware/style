@@ -24,7 +24,7 @@
 @import "settings/z-indexes";
 
 // TOOLS
-@import "tools/**/*";
+@import "tools/**/*.scss";
 
 // GENERIC
 @import "generic/box-sizing";
@@ -39,9 +39,6 @@
 
 // LAYOUTS
 @import "layouts/**/*.scss";
-
-// COMPONENTS
-@import "components/**/*.scss";
 
 // MODULES
 @import "modules/**/*.scss";
