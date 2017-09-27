@@ -2,6 +2,12 @@
    EXAMPLE MODULE
    ========================================================================== */
 
+$module-name: 'templateModule';
+
+@include settings((
+    min-width: 20px,
+));
+
 .templateModule {
     margin: 0;
 

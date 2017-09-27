@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "dialog-settings": "^1.2.0",
         "dialog-size": "^1.2.2",
         "sass-mq": "^3.3.2",
         "susy": "^2.2.12"
