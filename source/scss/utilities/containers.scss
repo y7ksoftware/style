@@ -3,5 +3,5 @@
    ========================================================================== */
 
 .u-pageContainer {
-    @include page-container;
+    @include container($page-container);
 }

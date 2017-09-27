@@ -14,21 +14,21 @@
  * - Be absolute positioned or normal
  *
  *
- * @include page-container();        --> Normal
- * @include page-container(true);    --> Absolute
+ * @include container($page-container, );        --> Normal
+ * @include container($page-container, true);    --> Absolute
  *
  */
 
-@mixin page-container($absolute: false) {
+@mixin container($container, $absolute: false) {
 
-    @each $breakpoint, $settings in $page-container {
+    @each $breakpoint, $settings in $container {
 
         $width: map-get($settings, width);
         // Width: Auto, when no width is given
         $width: if($width, $width, auto);
 
         $margin: map-get($settings, margin);
-        // Margins: auto, when no margin given
+        // Margins: auto, when no margins given
         $margin: if($margin, $margin, auto);
 
         @include mq($from: $breakpoint) {
