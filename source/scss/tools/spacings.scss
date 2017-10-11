@@ -97,8 +97,10 @@
         @include mq($from: $breakpoint) {
             @if $position == 'all' or $absolute {
                 #{$spaceType}: $value;
+                #{$spaceType}: rem($value);
             } @else {
                 #{$spaceType}-#{$position}: $value;
+                #{$spaceType}-#{$position}: rem($value);
             }
         }
     }
