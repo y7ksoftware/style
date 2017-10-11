@@ -2,15 +2,12 @@
 
  [Version](project.json), [Changelog](changelog.md)
 
-#### An extensive, opinionated SCSS boilerplate for the modern web.
+An extensive, opinionated SCSS boilerplate for the modern web.
 
 ## Structure
 
 ### Animations
 A place for pure CSS Animations.
-
-### Components
-A place for Vue.js Component Styles.
 
 ### Elements
 The styles applied to html elements.
@@ -20,7 +17,7 @@ The styles applied to html elements.
 
 ### Generic
  * Normalize: A level playing field using @necolas’ Normalize.css
- * Reset: Atiny reset to complement Normalize.css
+ * Reset: A tiny reset to complement Normalize.css
  * Box-sizing: Better default `box-sizing`
  * Cloak: Vue Cloak prevents FUOC
  * Fonts: Load webfonts here
@@ -30,35 +27,34 @@ The styles applied to html elements.
 Put your shameful, temprary dev hacks here.
 
 ### Layouts
-Layouts define core layout styles that are used on all or multiple pages.
+Layouts define core layout styles that are used on multiple pages.
 
 ### Modules
-Module encapsulate independent parts of the page.
+Modules encapsulate independent parts of the page.
 
 ### Settings
 A place for Configuration and Variables.
 * Breakpoints: Definition of breakpoints with sass-mq
- * Colors: Color definitions
- * Dialog Sizes: Definition of Font sizes
- * Easing
- * Grid: Susy grid configuration
- * Spacing: Responsive margin & padding definitions
- * Typo: Fonts and  font-sizes
- * Z-Indexes: Named Z-Indexes to keep them in one place
+* Colors: Color definitions
+* Easing
+* Grid: Susy grid configuration
+* Spacing: Responsive margin & padding definitions
+* Typo: Fonts, font sizes and typography
+* Z-indexes: Named i-indexes to keep them in one place
  
 ### Tools
-A place for Mixins.
+A place for Mixins and functions.
  * Aspect-Ratio
  * Clearfix
- * Fluid Type: Fluid Font Size, resizing depending on viewport
+ * Fluid Type: Fluid font size, resizing the font depending on viewport
  * Font Face: Font-Face definition generator
- * Font Size: Font Size tool that translates pixel fonts and lineheights to REM
+ * Font Size: Font size tool that translates pixel fonts and line heights to REM
  * Hidden: Mixin for hiding elements.
- * Object Fit: Mixin for Object-Fit definition, with support for polyfill
+ * Object Fit: Mixin for object-fit definition, with support for polyfill
  * Rem: Tools for converting pixel inputs into their rem equivalents.
  * Responsive Property: Mixin to quickly apply a map of responsive values to a property via breakpoints
  * Unlink: Remove default link styles
- * Z-Index: Use a named Z-Index with this mixin
+ * Z-Index: Use a named z-index with this mixin
  
 ### Utilities
 Utility classes, prefixed with `c-`.
@@ -72,7 +68,7 @@ Put Vendor CSS files from 3rd party libraries here.
 
 ## Third Party Libraries
 
-* [dialog(size)](https://github.com/meodai/dialog-size) by [@meodai](https://github.com/meodai)
+* [dialog(settings)](https://github.com/meodai/dialog-settings) by [@meodai](https://github.com/meodai)
 * [Susy](http://susy.oddbird.net)
 * [Sass MQ](http://sass-mq.github.io/sass-mq/)
 
