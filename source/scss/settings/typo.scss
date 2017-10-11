@@ -7,24 +7,34 @@
 $global-font-size: 16px;
 $global-line-height: 24px;
 
-
 // Font Families
 $font-title: Helvetica, Arial, sans-serif;
 $font-text: Helvetica, Arial, sans-serif;
 
 
-// Example Font definitions
 
-@mixin font-body() {
-    @include font-size(size(medium));
-    @include mq($from: tablet) { @include font-size(size(medium)); }
+// Font Sizes
+$font-size-small: 12px;
+$font-size-medium: 20px;
+$font-size-large: 30px;
+$font-size-huge: 60px;
+
+$font-size-small-mobile: 10px;
+$font-size-medium-mobile: 16px;
+$font-size-large-mobile: 18px;
+$font-size-huge-mobile: 30px;
+
+
+// Example Typography definitions
+@mixin typo-body() {
+    @include font-size($font-size-medium-mobile);
+    @include mq($from: tablet) { @include font-size($font-size-medium); }
     font-family: $font-text;
 }
 
-
-@mixin font-title() {
-    @include font-size(size(medium));
-    @include mq($from: tablet) { @include font-size(size(large)); }
+@mixin typo-title() {
+    // Fluid font size
+    @include fluid-type(phablet, desktop, $font-size-large-mobile, $font-size-large);
     font-family: $font-title;
     font-weight: bold;
 }

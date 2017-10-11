@@ -2,7 +2,7 @@
 
 ## Version 0.4.*
 * Update Packages
-*
+* Removed dialog(size) helper
 
 ## Version 0.3.*
 * Add completely new, responsive spacing system with spacings() mixins

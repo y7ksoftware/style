@@ -8,7 +8,6 @@
 
 // LIBRARIES
 // $cli-hook-libraries$
-@import "dialog-size/dist/dialog-size";
 @import "dialog-settings/dist/dialog-settings";
 @import "sass-mq/mq";
 @import "susy/sass/susy";
@@ -16,7 +15,6 @@
 // SETTINGS
 @import "settings/breakpoints";
 @import "settings/colors";
-@import "settings/dialog-sizes";
 @import "settings/easing";
 @import "settings/grid";
 @import "settings/measurements";
