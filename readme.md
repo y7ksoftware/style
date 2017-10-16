@@ -24,7 +24,7 @@ The styles applied to html elements.
  * Print: Reset-like styles taken from the HTML5 Boilerplate
  
 ### Hacks
-Put your shameful, temprary dev hacks here.
+Put your temprary hacks here.
 
 ### Layouts
 Layouts define core layout styles that are used on multiple pages.
