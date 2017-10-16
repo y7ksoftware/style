@@ -10,6 +10,7 @@ $module-name: 'templateModule';
 
 .templateModule {
     margin: 0;
+    min-width: setting(min-width);
 
     @include mq($until: phone) {}
     @include mq($from: tablet) {}
