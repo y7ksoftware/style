@@ -4,6 +4,7 @@
 * Update Packages
 * Removed dialog(size) helper
 * Output spacings as REM
+* Output responsive properties as REM
 
 ## Version 0.3.*
 * Add completely new, responsive spacing system with spacings() mixins
