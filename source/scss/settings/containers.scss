@@ -3,11 +3,10 @@
    ======================================================================== */
 
 /**
- * See "tools/page-container"
+ * See "tools/container"
  *
- * Page container defines a responsive container for the whole page content. It takes
- * the definitions from "settings/page-container" and creates a container with different
- * width based on breakpoint.
+ * The container tool defines a responsive container for it's content. Here,
+ * you can set definitions for different containers.
  *
  * - For every breakpoint, set a map
  * - Map can have two properties (either or!)

@@ -1,11 +1,12 @@
 /* ========================================================================
-   RESPONSIVE PAGE CONTAINER
+   RESPONSIVE CONTAINERS
    ======================================================================== */
 
 /**
  *
- * Page container defines a responsive container for the whole page content. It takes
- * the definitions from "settings/page-container" and creates a container with different
+ * container defines a responsive container for it's content.
+ * Usually this is used for the whole-page-container. It takes
+ * the definitions from "settings/containers" and creates a container with different
  * width based on breakpoint.
  *
  * The page container can be:
@@ -14,7 +15,7 @@
  * - Be absolute positioned or normal
  *
  *
- * @include container($page-container, );        --> Normal
+ * @include container($page-container);          --> Normal
  * @include container($page-container, true);    --> Absolute
  *
  */
