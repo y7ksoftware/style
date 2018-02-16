@@ -41,3 +41,8 @@
         }
     }
 }
+
+
+@mixin resp($property, $list, $useRem: false) {
+    @include responsive-property($property, $list, $useRem);
+}
