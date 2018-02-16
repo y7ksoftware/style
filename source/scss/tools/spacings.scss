@@ -127,7 +127,7 @@
  * $spacingSize: Null is allowed (sets space 0 for this breakpoint)
  * $spacingSize: 30px is allowed to define specific space for this breakpoint
  */
-@mixin spacings($position, $spacingSizes, $inner: false, $absolute: false) {
+@mixin spacings($position, $spacingSizes, $inner: false, $absolute: false, $useRem: false) {
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);
@@ -180,8 +180,14 @@
                 @include mq($from: $breakpoint) {
                     @if $position == 'all' or $absolute {
                         #{$spaceType}: $value;
+                        @if $useRem {
+                            #{$spaceType}: rem($value);
+                        }
                     } @else {
                         #{$spaceType}-#{$position}: $value;
+                        @if $useRem {
+                            #{$spaceType}-#{$position}: rem($value);
+                        }
                     }
                 }
             }
