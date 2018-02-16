@@ -75,7 +75,7 @@
  * There is no "null" or "fixed value" for $spacingSize as in @spacings() as there is no use for it, you can
  * simply define the css rule directly
  */
-@mixin spacing($position, $spacingSize, $inner: false, $absolute: false) {
+@mixin spacing($position, $spacingSize, $inner: false, $absolute: false, $useRem: false) {
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);
@@ -97,10 +97,14 @@
         @include mq($from: $breakpoint) {
             @if $position == 'all' or $absolute {
                 #{$spaceType}: $value;
-                #{$spaceType}: rem($value);
+                @if $useRem {
+                    #{$spaceType}: rem($value);
+                }
             } @else {
                 #{$spaceType}-#{$position}: $value;
-                #{$spaceType}-#{$position}: rem($value);
+                @if $useRem {
+                    #{$spaceType}-#{$position}: rem($value);
+                }
             }
         }
     }
