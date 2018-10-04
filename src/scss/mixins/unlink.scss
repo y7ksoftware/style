@@ -1,0 +1,25 @@
+/**
+ * -----------------------------------------------------------------------
+ * unlin
+ * -----------------------------------------------------------------------
+ *
+ * Remove default link styles from a link
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+@mixin unlink() {
+
+    color: inherit;
+    text-decoration: none;
+
+    &:visited,
+    &:active,
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+}

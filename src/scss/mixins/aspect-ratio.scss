@@ -1,25 +1,31 @@
-/* ========================================================================
-   ASPECT RATIO
-   ======================================================================== */
-
 /**
+ * -----------------------------------------------------------------------
+ * aspect-ratio
+ * -----------------------------------------------------------------------
+ *
  * from https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
 
 @mixin aspect-ratio($width, $height) {
     position: relative;
+
     &:before {
         display: block;
-        content: "";
+        content: '';
         width: 100%;
         padding-top: ($height / $width) * 100%;
     }
+
     > * {
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
         bottom: 0;
+        left: 0;
         height: 100%;
     }
 }

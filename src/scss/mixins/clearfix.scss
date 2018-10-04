@@ -1,8 +1,7 @@
-/* ========================================================================
-   CLEARFIX
-   ======================================================================== */
-
 /**
+ * -----------------------------------------------------------------------
+ * clearfix
+ * -----------------------------------------------------------------------
  *
  * Mixin to drop micro clearfix into a selector. Further reading:
  * http://www.cssmojo.com/the-very-latest-clearfix-reloaded/
@@ -11,6 +10,9 @@
  *   @include clearfix();
  * }
  *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
 
 @mixin clearfix() {
@@ -18,7 +20,7 @@
     clear: both;
 
     &:after {
-        content: "" !important;
+        content: '' !important;
         display: block !important;
         clear: both !important;
     }

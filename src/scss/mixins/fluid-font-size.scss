@@ -1,12 +1,18 @@
-/* ========================================================================
-   FLUID TYPE
-   ======================================================================== */
+/**
+ * -----------------------------------------------------------------------
+ * fluid-font-size
+ * -----------------------------------------------------------------------
+ *
+ * Creates a fluid fontsize that adapts its size from breakpoint to breakpoint
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
 
-@function strip-unit($value) {
-    @return $value / ($value * 0 + 1);
-}
 
-@mixin fluid-type($min-bp, $max-bp, $min-font-size, $max-font-size, $line-height: auto, $important: false) {
+
+@mixin fluid-font-size($min-bp, $max-bp, $min-font-size, $max-font-size, $line-height: auto, $important: false) {
     $min-vw: mq-get-breakpoint-width($min-bp);
     $max-vw: mq-get-breakpoint-width($max-bp);
     $u1: unit($min-vw);

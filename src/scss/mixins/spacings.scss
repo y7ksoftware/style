@@ -1,8 +1,7 @@
-/* ========================================================================
-   RESPONSIVE SPACING
-   ======================================================================== */
-
 /**
+ * -----------------------------------------------------------------------
+ * spacings
+ * -----------------------------------------------------------------------
  *
  * Spacings simplifies the application of responsive spacings (margins, paddings, top, left etc.).
  * It applies spacing types defined in "settings/spacings". In the settings you can setup different spacings,
@@ -56,7 +55,13 @@
  * @include spacings(all, (phone: small, tablet: 30px, desktop: large));       --> Small margin for mobile, fixed 30px for tablet, large space for desktop
  * @include spacings(left, (phone: medium, tablet: small), $absolute: true);   --> Absolute left: XXpx; Medium for Phone, Small for Tablet and above
  *
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
+
+
 
 
 /**
@@ -75,7 +80,7 @@
  * There is no "null" or "fixed value" for $spacingSize as in @spacings() as there is no use for it, you can
  * simply define the css rule directly
  */
-@mixin spacing($position, $spacingSize, $inner: false, $absolute: false, $useRem: false) {
+@mixin spacing($position, $spacingSize, $inner: false, $absolute: false, $useRem: true) {
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);
@@ -127,7 +132,7 @@
  * $spacingSize: Null is allowed (sets space 0 for this breakpoint)
  * $spacingSize: 30px is allowed to define specific space for this breakpoint
  */
-@mixin spacings($position, $spacingSizes, $inner: false, $absolute: false, $useRem: false) {
+@mixin spacings($position, $spacingSizes, $inner: false, $absolute: false, $useRem: true) {
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);

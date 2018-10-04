@@ -1,0 +1,24 @@
+/**
+ * -----------------------------------------------------------------------
+ * hidden-visually
+ * -----------------------------------------------------------------------
+ *
+ * Mixin to quickly apply accessible hiding to elements.
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+@mixin hidden-visually() {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+}

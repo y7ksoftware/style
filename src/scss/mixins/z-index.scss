@@ -1,0 +1,16 @@
+/**
+ * -----------------------------------------------------------------------
+ * z-index
+ * -----------------------------------------------------------------------
+ *
+ * Define all your z-indexes in the settings and then use them
+ * with @include z-index(example)
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+@mixin z-index($index) {
+    z-index: map-get($z-indexes, $index);
+}

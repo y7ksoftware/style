@@ -1,8 +1,7 @@
-/* ========================================================================
-   RESPONSIVE CONTAINERS
-   ======================================================================== */
-
 /**
+ * -----------------------------------------------------------------------
+ * container
+ * -----------------------------------------------------------------------
  *
  * container defines a responsive container for it's content.
  * Usually this is used for the whole-page-container. It takes
@@ -18,7 +17,13 @@
  * @include container($page-container);          --> Normal
  * @include container($page-container, true);    --> Absolute
  *
+ *
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
+
 
 @mixin container($container, $absolute: false) {
 
@@ -56,4 +61,15 @@
     }
 }
 
+
+@mixin container-content-full-page() {
+    margin-left: calc((100vw - 100%) / 2 * -1);
+    margin-right: calc((100vw - 100%) / 2 * -1);
+}
+
+
+@mixin container-content-full-page-inner() {
+    padding-left: calc((100vw - 100%) / 2);
+    padding-right: calc((100vw - 100%) / 2);
+}
 
