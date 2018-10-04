@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "author": {
+        "name": "Y7K",
+        "url": "https://y7k.com"
+    },
+    "scripts": {
+        "stylelint": "stylelint src/scss"
+    },
+    "devDependencies": {
+        "eslint": "^4.19.1",
+        "stylelint": "^9.2.1",
+        "stylelint-config-sass-guidelines": "^5.0.0"
+    }
+}

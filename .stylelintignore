@@ -1,0 +1,5 @@
+vendor/**/*.scss
+vendor/**/*.css
+src/scss/boot/normalize.scss
+src/scss/boot/print.scss
+src/scss/boot/reset.scss
