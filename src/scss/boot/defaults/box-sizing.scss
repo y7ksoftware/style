@@ -1,10 +1,14 @@
-/* ==========================================================================
-   BOX-SIZING
-   ========================================================================== */
-
 /**
+ * -----------------------------------------------------------------------
+ * box-sizing
+ * -----------------------------------------------------------------------
+ *
  * More sensible default box-sizing:
  * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
 
 html {
@@ -12,11 +16,9 @@ html {
 }
 
 * {
-
     &,
     &:before,
     &:after {
         box-sizing: inherit;
     }
-
 }

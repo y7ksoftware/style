@@ -1,0 +1,28 @@
+/**
+ * -----------------------------------------------------------------------
+ * focus
+ * -----------------------------------------------------------------------
+ *
+ *
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+:focus,
+:-moz-focusring {
+    outline: none !important;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+h1:focus {
+    outline: none !important;
+}
+
+*:focus {
+    outline: none !important;
+}
