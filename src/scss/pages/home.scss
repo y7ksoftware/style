@@ -1,0 +1,14 @@
+
+// EXAMPLE
+// Always wrapp all page-specific styles inside the namespace wrapper
+[data-namespace="home"] {
+
+    .landingJumbo {
+        font-size: 30px;
+        @include spacing(all, medium, $inner: true);
+        @include spacing(top, medium);
+        @include spacing(bottom, medium);
+        background: #ddd;
+    }
+
+}
