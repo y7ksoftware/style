@@ -1,53 +1,42 @@
-/* ==========================================================================
-   CSS
-   ========================================================================== */
-
 /**
+ * -----------------------------------------------------------------------
+ * main.scss
+ * -----------------------------------------------------------------------
+ *
  * This is the manifest file.
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
 
-// LIBRARIES
+
+// Libraries
 // $cli-hook-libraries$
-@import "dialog-settings/dist/dialog-settings";
 @import "sass-mq/mq";
 @import "susy/sass/susy";
+@import "vendor/**/*";
 
-// SETTINGS
-@import "settings/breakpoints";
-@import "settings/colors";
-@import "settings/easing";
-@import "settings/grid";
-@import "settings/measurements";
-@import "settings/containers";
-@import "settings/spacings";
-@import "settings/typo";
-@import "settings/z-indexes";
+// Variables
+@import 'variables/**/*';
 
-// TOOLS
-@import "tools/**/*.scss";
+// Utils
+@import 'boot/utils';
 
-// GENERIC
-@import "generic/box-sizing";
-@import "generic/normalize";
-@import "generic/reset";
-@import "generic/general";
-@import "generic/fonts";
-@import "generic/print";
+// Mixins
+@import 'mixins/**/*';
 
-// ELEMENTS
-@import "elements/**/*.scss";
+// Initialization
+@import 'boot/reset';
+@import 'boot/normalize';
+@import 'boot/print';
+@import 'boot/defaults/**/*.scss';
 
-// LAYOUTS
-@import "layouts/**/*.scss";
+// Global styles
+@import "global/**/*.scss";
 
-// MODULES
-@import "modules/**/*.scss";
+// Pages
+@import "pages/**/*.scss";
 
-// ANIMATIONS
-@import "animations/**/*.scss";
-
-// UTILITIES
-@import "utilities/**/*.scss";
-
-// SHAME ON YOU
-@import "hacks/shame";
+// Components
+@import "components/**/*.scss";
