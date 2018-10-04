@@ -1,0 +1,15 @@
+
+// Component class name equals component name
+.demoComponent {}
+
+// Modifier example (equals BEM .demoComponent--modifier)
+.demoComponent-isActive {}
+
+// Child component example (equals BEM .demoComponent__child)
+.demoComponent-child {}
+
+// Child component example (equals BEM .demoComponent__child__child)
+.demoComponent-childChild {}
+
+// Child component modifier example (equals BEM .demoComponent__child--isActive)
+.demoComponent-child-isActive {}
