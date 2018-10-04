@@ -1,9 +1,9 @@
-/* ========================================================================
-   PAGE CONTAINER SIZES
-   ======================================================================== */
-
 /**
- * See "tools/container"
+ * -----------------------------------------------------------------------
+ * containers
+ * -----------------------------------------------------------------------
+ *
+ * See "mixins/container"
  *
  * The container tool defines a responsive container for it's content. Here,
  * you can set definitions for different containers.
@@ -12,6 +12,10 @@
  * - Map can have two properties (either or!)
  *     - margins: XX[px/vh/%/etc.]   --> Container has fluid width and margins on the side and is centered
  *     - width: XX[px/vh/%/etc.]     --> Container has fixed width and is centered
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
  */
 
 $page-container: (

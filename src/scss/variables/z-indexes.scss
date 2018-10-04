@@ -1,0 +1,18 @@
+/**
+ * -----------------------------------------------------------------------
+ * z-indexes
+ * -----------------------------------------------------------------------
+ *
+ * Define all your z-indexes here and then use them
+ * with @include z-index(example)
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+$z-indexes: (
+    modal:       1000,
+    example:     900,
+    background:  800,
+);

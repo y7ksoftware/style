@@ -1,0 +1,21 @@
+/**
+ * -----------------------------------------------------------------------
+ * breakpoints
+ * -----------------------------------------------------------------------
+ *
+ * Read up! http://sass-mq.github.io/sass-mq/
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+
+$mq-breakpoints: (
+    phone: 0px,
+    phablet: 600px,
+    tablet: 900px,
+    desktop: 1100px,
+    big-desktop: 1440px
+);
+
