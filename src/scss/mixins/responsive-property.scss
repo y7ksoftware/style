@@ -37,7 +37,7 @@
  */
 
 
- @mixin responsive-property($property, $list, $useRem: true) {
+@mixin responsive-property($property, $list, $useRem: true) {
     @each $breakpoint-name, $value in $list {
         @include mq($from: $breakpoint-name) {
             #{$property}: $value;

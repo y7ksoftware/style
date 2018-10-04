@@ -31,7 +31,7 @@ $font-heading: Helvetica, Arial, sans-serif;
 // Example Typography definitions
 @mixin typo-body() {
     @include font-size(16px);
-    @include mq($from: tablet) { @include font-size(20px); }
+    @include resp(font-size,(phone: 16px, tablet: 20px));
     font-family: $font-default;
 }
 

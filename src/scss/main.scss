@@ -13,9 +13,9 @@
 
 // Libraries
 // $cli-hook-libraries$
-@import "sass-mq/mq";
-@import "susy/sass/susy";
-@import "vendor/**/*";
+@import 'sass-mq/mq';
+@import 'susy/sass/susy';
+@import 'vendor/**/*';
 
 // Variables
 @import 'variables/**/*';
@@ -33,10 +33,10 @@
 @import 'boot/defaults/**/*.scss';
 
 // Global styles
-@import "global/**/*.scss";
+@import 'global/**/*.scss';
 
 // Pages
-@import "pages/**/*.scss";
+@import 'pages/**/*.scss';
 
 // Components
-@import "components/**/*.scss";
+@import 'components/**/*.scss';

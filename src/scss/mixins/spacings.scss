@@ -62,53 +62,51 @@
  */
 
 
-
-
 /**
  * Single spacing type for all breakpoints
  *
  * Parameters
  * ----------------------
  * $position: left/right/top/bottom/all
- * $spacingSize: the name of a spacing map defined in "settings/spacings" (e.g. small)
+ * $spacing-size: the name of a spacing map defined in "settings/spacings" (e.g. small)
  * $inner: if true, it will use padding instead of margin
  * $absolute: if true, it will use left/right/top/bottom instead of margins/paddings
  *
  * Notes:
  * If $absolute is true: $position "all" is not allowed
  * If $absolute is true: $inner is not allowed
- * There is no "null" or "fixed value" for $spacingSize as in @spacings() as there is no use for it, you can
+ * There is no "null" or "fixed value" for $spacing-size as in @spacings() as there is no use for it, you can
  * simply define the css rule directly
  */
-@mixin spacing($position, $spacingSize, $inner: false, $absolute: false, $useRem: true) {
+@mixin spacing($position, $spacing-size, $inner: false, $absolute: false, $useRem: true) {
+
+    $space-type: null;
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);
 
-    $spaceType: null;
 
     @if $absolute {
-        $spaceType: $position;
+        $space-type: $position;
     } @else if $inner {
-        $spaceType: 'padding';
+        $space-type: 'padding';
     } @else {
-        $spaceType: 'margin';
+        $space-type: 'margin';
     }
 
-    $spacingValues: map-get($spacings, $spacingSize);
+    $spacing-values: map-get($spacings, $spacing-size); // stylelint-disable
 
-
-    @each $breakpoint, $value in $spacingValues {
+    @each $breakpoint, $value in $spacing-values {
         @include mq($from: $breakpoint) {
             @if $position == 'all' or $absolute {
-                #{$spaceType}: $value;
+                #{$space-type}: $value;
                 @if $useRem {
-                    #{$spaceType}: rem($value);
+                    #{$space-type}: rem($value);
                 }
             } @else {
-                #{$spaceType}-#{$position}: $value;
+                #{$space-type}-#{$position}: $value;
                 @if $useRem {
-                    #{$spaceType}-#{$position}: rem($value);
+                    #{$space-type}-#{$position}: rem($value);
                 }
             }
         }
@@ -122,93 +120,93 @@
  * Parameters
  * ----------------------
  * $position: left/right/top/bottom/all
- * $spacingSize: the name of a spacing map defined in "settings/spacings" (e.g. small) OR "null" OR a value, e.g. "30%"
+ * $spacing-size: the name of a spacing map defined in "settings/spacings" (e.g. small) OR "null" OR a value, e.g. "30%"
  * $inner: if true, it will use padding instead of margin
  * $absolute: if true, it will use left/right/top/bottom instead of margins/paddings
  *
  * Notes:
  * If $absolute is true: $position "all" is not allowed
  * If $absolute is true: $inner is not allowed
- * $spacingSize: Null is allowed (sets space 0 for this breakpoint)
- * $spacingSize: 30px is allowed to define specific space for this breakpoint
+ * $spacing-size: Null is allowed (sets space 0 for this breakpoint)
+ * $spacing-size: 30px is allowed to define specific space for this breakpoint
  */
-@mixin spacings($position, $spacingSizes, $inner: false, $absolute: false, $useRem: true) {
+@mixin spacings($position, $spacing-sizes, $inner: false, $absolute: false, $useRem: true) {
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);
 
-    $lastSpacingSize: null;
-    $spaceType: null;
+    $lastSpacing-size: null;
+    $space-type: null;
 
     @if $absolute {
-        $spaceType: $position;
+        $space-type: $position;
     } @else if $inner {
-        $spaceType: 'padding';
+        $space-type: 'padding';
     } @else {
-        $spaceType: 'margin';
+        $space-type: 'margin';
     }
 
 
     @each $breakpoint, $breakpointValue in $mq-breakpoints {
 
-        $spacingSize: null;
+        $spacing-size: null;
 
         // If no size is given for a specific breakpoint, we apply the same
         // size as the last breakpoint
-        @if not map-has-key($spacingSizes, $breakpoint) {
-            $spacingSize: $lastSpacingSize;
+        @if not map-has-key($spacing-sizes, $breakpoint) {
+            $spacing-size: $lastSpacing-size;
         } @else {
-            $spacingSize: map-get($spacingSizes, $breakpoint);
+            $spacing-size: map-get($spacing-sizes, $breakpoint);
         }
 
-        // Now there is either a given spacingSize (as parameter, or else the the one from the last breakpoint).
-        // If not, then the spacingSize is explicitly set to null! In this case, we apply space 0
-        @if $spacingSize {
+        // Now there is either a given spacing-size (as parameter, or else the the one from the last breakpoint).
+        // If not, then the spacing-size is explicitly set to null! In this case, we apply space 0
+        @if $spacing-size {
 
             $value: null;
 
-            @if type-of($spacingSize) == number {
-                $value: $spacingSize;
+            @if type-of($spacing-size) == number {
+                $value: $spacing-size;
             } @else {
-                $spacingValues: map-get($spacings, $spacingSize);
-                $value: map-get($spacingValues, $breakpoint);
+                $spacing-values: map-get($spacings, $spacing-size);
+                $value: map-get($spacing-values, $breakpoint);
             }
 
             // In this case, a size was passed for a breakpoint, which has no size value defined for this breakpoint
             // This doesn't make sense, so don't allow it
-            @if not $value and map-has-key($spacingSizes, $breakpoint) {
-                @error 'There is no size "#{$spacingSize}" defined for this breakpoint: #{$breakpoint}';
+            @if not $value and map-has-key($spacing-sizes, $breakpoint) {
+                @error 'There is no size "#{$spacing-size}" defined for this breakpoint: #{$breakpoint}';
             }
 
             // Only output value if there is one.
             @if $value {
                 @include mq($from: $breakpoint) {
                     @if $position == 'all' or $absolute {
-                        #{$spaceType}: $value;
+                        #{$space-type}: $value;
                         @if $useRem {
-                            #{$spaceType}: rem($value);
+                            #{$space-type}: rem($value);
                         }
                     } @else {
-                        #{$spaceType}-#{$position}: $value;
+                        #{$space-type}-#{$position}: $value;
                         @if $useRem {
-                            #{$spaceType}-#{$position}: rem($value);
+                            #{$space-type}-#{$position}: rem($value);
                         }
                     }
                 }
             }
         } @else {
 
-            // In case "null" is explicitly passed for a specific breakpoint, we apply "spaceType: 0" in this case.
+            // In case "null" is explicitly passed for a specific breakpoint, we apply "space-type: 0" in this case.
             @include mq($from: $breakpoint) {
                 @if $position == 'all' or $absolute {
-                    #{$spaceType}: 0;
+                    #{$space-type}: 0;
                 } @else {
-                    #{$spaceType}-#{$position}: 0;
+                    #{$space-type}-#{$position}: 0;
                 }
             }
         }
 
-        $lastSpacingSize: $spacingSize;
+        $lastSpacing-size: $spacing-size;
 
     }
 }
