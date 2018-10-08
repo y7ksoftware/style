@@ -1,5 +1,19 @@
 # Y7K Style Changelog
 
+## Version 1.0.* - 2018-10-08
+* Updated Versioning to include major releases
+* Completely refactor SCSS folder structure
+    - modules -> components
+    - settings -> variables
+    - tools -> mixins
+    - generic & elements -> boot
+    - /global now contain anything global (not component/page related)
+* Add /pages folder
+* Add more example code
+* Remove Utlities
+* Add Stylelint
+
+
 ## Version 0.4.*
 * Update Packages
 * Removed dialog(size) helper
