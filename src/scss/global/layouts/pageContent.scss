@@ -1,3 +1,4 @@
 .pageContent {
+    flex-grow: 1;
     @include container($page-container);
 }
