@@ -13,6 +13,7 @@
  * - The Y7K grid is based on flexbox. No floating is used.
  * - Susy Gutters are not used! Do not use susy mixins like gutter(), wide() etc.
  * - Grids with inner gutters are dependent on correct markup. You need to have a container with negative margins to equal the most left and right gutters.
+ * - You can pass a different "grid-gutter" setting to every grid() mixin, if you have different grids
  *
  *
  *     <div class="gridContainer">             --> container with @grid()
@@ -32,12 +33,15 @@
  * EXAMPLES:
  * ---------
  *
+ * @include grid();                                              --> Default grid container
+ * @include grid($other-gutters);                                --> Grid container with other gutter settings
+ *
  * @include grid-column(5);                                      --> Put a 5 column (5 of 12 or the susy default)
  * @include grid-column(6 of 18);                                --> You can use susy span() shorthand form for exceptions
  * @include grid-column-full;                                    --> For a fullwidth column (The same as @include grid-column(12); or @include grid-column(full); )
  * @include grid-columns((phone: 12, tablet: 6, desktop: 4));    --> Create a column with responsive width (1 column phone, 2 column tablet, 3 column desktop)
  * @include grid-columns((desktop: 4));                          --> Only applies the column rules to desktop (is normal div with inherit rules until desktop)
- *
+ * @include grid-column(5, $other-gutters);                      --> Put a 5 column (5 of 12 or the susy default, but with different gutters)
  *
  *
  * COLUMNS WITH BACKGROUND COLOR OR BORDERS:
@@ -82,7 +86,7 @@
  *
  * Applies responsive, negative margin, so the most left and right column do align correctly on the side
  */
-@mixin grid {
+@mixin grid($grid-gutters: $grid-gutters) {
     display: flex;
     flex-wrap: wrap;
 
@@ -98,11 +102,13 @@
 /**
  * Applies a column (same for all breakpoints)
  *
- * @incldue grid-column(12);
- * @incldue grid-column(6 of 18);
+ * @include grid-column(12);
+ * @include grid-column(6 of 18);
+ * @incldue grid-column(6 of 18, $custom-gutters);
+ *
  */
-@mixin grid-column($span) {
-    @include grid-gutters;
+@mixin grid-column($span, $grid-gutters: $grid-gutters) {
+    @include grid-gutters($grid-gutters);
     width: span($span);
 }
 
@@ -112,8 +118,8 @@
  *
  * (The same as @include grid-column(12); or @include grid-column(full); )
  */
-@mixin grid-column-full() {
-    @include grid-gutters;
+@mixin grid-column-full($grid-gutters: $grid-gutters) {
+    @include grid-gutters($grid-gutters);
     width: span(full);
 }
 
@@ -125,9 +131,10 @@
  *
  * @include grid-columns((phone: 12, tablet: 6, desktop: 4));    --> Create a column with responsive width (1 column phone, 2 column tablet, 3 column desktop)
  * @include grid-columns((desktop: 4));                          --> Only applies the column rules to desktop (is normal div with inherit rules until desktop)
+ * @include grid-columns((desktop: 4), $custom-gutters);         --> With custom cutters
  */
-@mixin grid-columns($spans) {
-    @include grid-gutters;
+@mixin grid-columns($spans, $grid-gutters: $grid-gutters) {
+    @include grid-gutters($grid-gutters);
     width: 100%;
 
     @each $breakpoint, $span in $spans {
@@ -142,7 +149,7 @@
  * Applies responsive, inner gutters (padding) to the element.
  * Used internally, but can also be used for other elements.
  */
-@mixin grid-gutters {
+@mixin grid-gutters($grid-gutters: $grid-gutters) {
     @each $breakpoint, $gutter in $grid-gutters {
         @include mq($from: $breakpoint) {
             padding-left: $gutter;
@@ -159,9 +166,10 @@
  * @include grid-gutter-as-property(border-width);
  *
  * $property: The $property you want to set,
+ * $grid-gutters: custom grid-gutters (other than default);
  * $multiplier: The number of gutters you want to set (e.g. 3x gutter width)
  */
-@mixin grid-gutter-as-property($property, $multiplier: 1) {
+@mixin grid-gutter-as-property($property, $grid-gutters: $grid-gutters, $multiplier: 1) {
     @each $breakpoint, $gutter in $grid-gutters {
         @include mq($from: $breakpoint) {
 
@@ -172,19 +180,44 @@
 }
 
 
+
+/**
+ * You can use the width of a column for something else than the width. For example as a margin-left,
+ * as height or something else.
+ *
+ * This will apply the span width * given times
+ *
+ * @include grid-span-as-property(height, (phone: 3, tablet: 1));
+ *
+ */
+@mixin grid-span-as-property($property, $span) {
+    #{$property}: span($span);
+}
+
+
+
 /**
  * You can use the width of a column for something else than the width. For example as a margin-left,
  * as height or something else.
  *
  * This will apply the span width * given times (responsively)
  *
- * @include grid-span-as-property(height, 3);
+ * @include grid-span-as-property(height, (phone: 3, tablet: 1));
  *
  */
-@mixin grid-span-as-property($property, $spans: 1) {
+@mixin grid-spans-as-property($property, $spans) {
     @each $breakpoint, $span in $spans {
         @include mq($from: $breakpoint) {
             #{$property}: span($span);
         }
     }
+}
+
+
+@mixin grid-push($span) {
+    @include grid-span-as-property(margin-left, $span);
+}
+
+@mixin grid-pushs($spans) {
+    @include grid-spans-as-property(margin-left, $spans);
 }
