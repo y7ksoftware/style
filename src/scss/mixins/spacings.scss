@@ -78,7 +78,7 @@
  * There is no "null" or "fixed value" for $spacing-size as in @spacings() as there is no use for it, you can
  * simply define the css rule directly
  */
-@mixin spacing($position, $spacing-size, $inner: false, $absolute: false, $useRem: true) {
+@mixin spacing($position, $spacing-size, $inner: false, $absolute: false, $negative: false) {
 
     $space-type: null;
 
@@ -97,17 +97,16 @@
     $spacing-values: map-get($spacings, $spacing-size); // stylelint-disable
 
     @each $breakpoint, $value in $spacing-values {
+
+        @if $negative {
+            $value: $value * -1;
+        }
+
         @include mq($from: $breakpoint) {
             @if $position == 'all' or $absolute {
                 #{$space-type}: $value;
-                @if $useRem {
-                    #{$space-type}: rem($value);
-                }
             } @else {
                 #{$space-type}-#{$position}: $value;
-                @if $useRem {
-                    #{$space-type}-#{$position}: rem($value);
-                }
             }
         }
     }
@@ -130,7 +129,7 @@
  * $spacing-size: Null is allowed (sets space 0 for this breakpoint)
  * $spacing-size: 30px is allowed to define specific space for this breakpoint
  */
-@mixin spacings($position, $spacing-sizes, $inner: false, $absolute: false, $useRem: true) {
+@mixin spacings($position, $spacing-sizes, $inner: false, $absolute: false, $negative: false) {
 
     // Validate correct usage of params
     @include validateSpacingParams($position, $inner, $absolute);
@@ -180,17 +179,16 @@
 
             // Only output value if there is one.
             @if $value {
+
+                @if $negative {
+                    $value: $value * -1;
+                }
+
                 @include mq($from: $breakpoint) {
                     @if $position == 'all' or $absolute {
-                        #{$space-type}: $value;
-                        @if $useRem {
-                            #{$space-type}: rem($value);
-                        }
+                        #{$space-type}: $value;}
                     } @else {
                         #{$space-type}-#{$position}: $value;
-                        @if $useRem {
-                            #{$space-type}-#{$position}: rem($value);
-                        }
                     }
                 }
             }
