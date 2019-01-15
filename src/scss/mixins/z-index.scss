@@ -11,6 +11,10 @@
  * @version   1.0.0
  */
 
-@mixin z-index($index) {
-    z-index: map-get($z-indexes, $index);
+@mixin z-index($index, $fallback: 1) {
+    @if map-has-key($z-indexes, $index) {
+        z-index: map-get($z-indexes, $index);
+    } @else {
+        z-index: $fallback;
+    }
 }
