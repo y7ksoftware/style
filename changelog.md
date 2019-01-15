@@ -1,5 +1,13 @@
 # Y7K Style Changelog
 
+## Version 2.0.* - 2019-01-15
+* Add flex-grow 1 to base layout so footer stays always at the bottom and content always reaches to bottom screen border
+* Restructure folder structure and document in readme
+* Improve font mixins
+* Allow grid mixin to have custom gutter configs
+* Allow negative spacing() and remove rem
+* Add fallback value to z-index mixin
+
 ## Version 1.0.* - 2018-10-08
 * Updated Versioning to include major releases
 * Completely refactor SCSS folder structure
