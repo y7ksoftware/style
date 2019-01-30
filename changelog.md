@@ -1,5 +1,9 @@
 # Y7K Style Changelog
 
+## Version 3.0.* - 2019-01-30
+* Add new helpful mixins (lineheight crop, link)
+* Add reusable classes for loadingspinners and links
+
 ## Version 2.0.* - 2019-01-15
 * Add flex-grow 1 to base layout so footer stays always at the bottom and content always reaches to bottom screen border
 * Restructure folder structure and document in readme
