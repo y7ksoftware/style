@@ -1,0 +1,66 @@
+/**
+ * -----------------------------------------------------------------------
+ * link
+ * -----------------------------------------------------------------------
+ *
+ * This mixin provides an interface to style text links
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+$color-link-light: gray !default;
+$color-link-light-hover: black !default;
+$color-link-dark: black !default;
+$color-link-dark-hover: gray !default;
+$duration-fade: 0.3s;
+
+
+@mixin link($mode: dark, $isUnderlined: false) {
+
+    $color: $color-link-dark;
+    $color-hover: $color-link-light;
+
+    @if ($mode == light) {
+        $color: $color-link-light;
+        $color-hover: $color-link-dark;
+    }
+
+    display: inline-block;
+    transition: color $duration-fade ease;
+    color: $color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:link,
+    &:visited {
+        color: $color;
+    }
+
+    &:hover {
+        border-color: $color-hover;
+        color: $color-hover;
+    }
+
+    @if ($isUnderlined) {
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $color;
+            transition: all $duration-fade ease;
+        }
+
+        &:hover:after {
+            transform: translateY(-2px);
+            background: $color-hover;
+        }
+    }
+
+}

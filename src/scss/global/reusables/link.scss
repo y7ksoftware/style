@@ -1,0 +1,34 @@
+// ----- API -----
+%link-light {
+    @include link(light);
+}
+
+%link-light-underline {
+    @include link(light, true);
+}
+
+%link-dark {
+    @include link(dark);
+}
+
+%link-dark-underline {
+    @include link(dark, true);
+}
+
+
+// ----- classes -----
+.link-light {
+    @extend %link-light;
+}
+
+.link-light-underline {
+    @extend %link-light-underline;
+}
+
+.link-dark {
+    @extend %link-dark;
+}
+
+.link-dark-underline {
+    @extend %link-dark-underline;
+}
