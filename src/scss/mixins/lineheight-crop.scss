@@ -1,0 +1,56 @@
+/**
+ * -----------------------------------------------------------------------
+ * lineheight-crop
+ * -----------------------------------------------------------------------
+ *
+ *
+ *
+ * @link      https://y7k.com
+ * @licence   MIT
+ * @version   1.0.0
+ */
+
+@mixin lineheight-crop($min-bp, $max-bp, $max-top, $max-bottom, $min-top, $min-bottom) {
+    $min-vw: mq-get-breakpoint-width($min-bp);
+    $max-vw: mq-get-breakpoint-width($max-bp);
+
+    &:before {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        margin-top: $min-top;
+
+        @include mq($from: $min-bp, $until: $max-bp) {
+            margin-top: calc(#{$min-top} + #{strip-unit($max-top - $min-top)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+
+
+        @include mq($from: $max-bp) {
+            margin-top: $max-top;
+        }
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        margin-bottom: $min-bottom;
+
+        @include mq($from: $min-bp, $until: $max-bp) {
+            margin-bottom: calc(#{$min-bottom} + #{strip-unit($max-bottom - $min-bottom)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+
+
+        @include mq($from: $max-bp) {
+            margin-bottom: $max-bottom;
+        }
+    }
+}
+
+
+@mixin lineheight-crop-example {
+    @include lineheight-crop(phablet, desktop, -5px, -5px, -10px, -10px);
+}
+
