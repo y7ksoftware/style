@@ -1,0 +1,28 @@
+$color-loading-spinner-back: lightgray;
+$color-loading-spinner-front: gray;
+$loading-spinner-weight: 3px;
+
+.loadingSpinner {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s 1s ease;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        border: $loading-spinner-weight solid $color-loading-spinner-back;
+        border-top-color: $color-loading-spinner-front;
+        animation: spinner 1s linear infinite;
+    }
+
+    &-isVisible { opacity: 1; }
+
+}
+
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
