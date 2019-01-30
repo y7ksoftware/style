@@ -13,10 +13,6 @@
  * @version   1.0.0
  */
 
-/*
-
-*/
-
 @mixin object-fit($fit: fill, $position: null) {
     object-fit: $fit;
     @if $position {
