@@ -11,26 +11,29 @@
  */
 
 
-$space-small: (
+$space-s: (
     phone: 10px,
+    phablet: 10px,
     tablet: 20px,
     desktop: 20px,
 );
 
-$space-medium: (
+$space-m: (
     phone: 20px,
+    phablet: 20px,
     tablet: 40px,
     desktop: 40px,
 );
 
-$space-large: (
+$space-l: (
     phone: 40px,
+    phablet: 40px,
     tablet: 80px,
     desktop: 100px,
 );
 
 $spacings: (
-    small: $space-small,
-    medium: $space-medium,
-    large: $space-large,
+    s: $space-s,
+    m: $space-m,
+    l: $space-l,
 );
